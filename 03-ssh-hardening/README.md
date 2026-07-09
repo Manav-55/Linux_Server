@@ -8,8 +8,8 @@ Secure remote access to the EC2 instance.
 
 ## Theory
 
-What is SSH?
-------------
+- What is SSH?
+
 Secure Shell is a cryptographic protocol which allow you to securely connect , manage and execute commands on a remote server over an unsecured network .
 Port 22 is the default port for SSH. 
 To establish this connection safely, it utilizes three main cryptographic layers: 
@@ -18,8 +18,8 @@ To establish this connection safely, it utilizes three main cryptographic layers
 2) Symmetric Cryptography: Used to encrypt the entire data transmission once the secure session is active, ensuring outsiders cannot read passwords or typed commands. 
 3) Hashing: Formulates unique mathematical check-sums to prove data integrity and verify that packets have not been altered or tampered with in transit. 
 
-How SSH authentication works
-----------------------------
+- How SSH authentication works
+
 It utilizes a cryptographic key pair: a Public Key placed on the server, and a matching Private Key kept strictly secret on your local device. The server issues a challenge that only the matching private key can solve, creating a secure, passwordless login environment. 
 
         Your Laptop
@@ -36,39 +36,43 @@ It utilizes a cryptographic key pair: a Public Key placed on the server, and a m
         authorized_keys
         (Public Key)
 
-Public Key & Private Key
-------------------------
+- Public Key & Private Key
+
 Public and private keys are a pair of mathematically linked cryptographic codes used in asymmetric encryption. 
 
 Private key Encryption, also termed as symmetric Key Encryption requires the key that is used to lock and the key used to unlock the message. This key must be kept concealed between the two communicating entities to have reasonable security.
 Public Key Encryption, or Asymmetric Encryption, involves a pair of keys: There is the public key that is relatively known and the private key which is kept secret. While the public key where everyone can get it from the internet is for encoding or encryption, the private key is employed for decoding, decryption.
 
-authorized_keys
----------------
+- authorized_keys
+
 The AWS automatically places the public key into the /home/ubuntu/.ssh/authorized_keys . 
 Your new user has no such key yet.
 => mkdir -p ~/.ssh
+
 .ssh stores SSH configuration and keys.
 
 => chmod 700 ~/.ssh
+
 only the owner can access the directory(every permission)
 
 =>ssh-keygen -y -f ~/.ssh/id_rsa.pem > ~/.ssh/id_rsa.pub
+
 now copy the id_rsa.pub content to the authorized_keys
 
 =>chmod 600 ~/.ssh/authorized_keys
+
 Owner can only read and Write .  SSH enforces these permissions for security.
 
-known_hosts
------------
+- known_hosts
+
 known_hosts file in Linux is a vital security feature of the Secure Shell (SSH) protocol. It acts as a local database that stores the unique public keys of all remote servers you have successfully connected to from your machine.
 
-SSH Daemon
-----------
+- SSH Daemon
+
 An SSH Daemon (commonly known as sshd) is a continuous background process running on a Linux server that listens for incoming SSH connection requests. While the ssh command is the client you use to connect out, sshd is the server component that allows connections in.
 
-sshd_config
------------
+- sshd_config
+
 Master configuration file for the SSH Daemon (sshd). It dictates exactly how your Linux server handles security, user authentication, and network connections.
 
 ## Architecture
