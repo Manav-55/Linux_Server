@@ -136,26 +136,35 @@ This minimizes the attack surface and reduces the likelihood of unauthorized acc
 ## Commands
 
 - ufw enable
+
 reloads firewall and enables firewall on boot.
 
 - ufw disable 
+
 unloads firewall and disables firewall on boot.
 
 - ufw status
+
 show status of firewall and ufw managed rules. Use status verbose for extra  information.  In  the  status  output, 'Anywhere' is synonymous with 'any', 0.0.0.0/0 (IPv4) and ::/0 (IPv6). Note that when using status, there is a subtle difference when reporting interfaces.
 
-use sudo ufw status numbered
+use => sudo ufw status numbered
 
 - ufw allow
+
 Users can specify rules using either a simple syntax or a full syntax. The simple syntax only specifies the port  and  optionally the protocol to be allowed or denied on the host.
+
 => ufw allow 25/tcp
 
-NOTE : Do this command  =>sudo ufw allow OpenSSH
+NOTE : Do this command  
+
+=>sudo ufw allow OpenSSH
 
 - ufw deny
+
 => ufw deny proto tcp to any port 80
 
 - ufw delete
+
 To delete a rule, simply prefix the original rule with delete with or without the rule comment.
 
 => sudo ufw delete 2
@@ -163,12 +172,15 @@ To delete a rule, simply prefix the original rule with delete with or without th
 ## Rules
 
 - Allow SSH
+
 => sudo ufw allow OpenSSH
 
 - Allow HTTP
+
 => sudo ufw allow 80/tcp
 
 - Allow HTTPS
+
 => sudo ufw allow 443/tcp
 
 ## Verification
