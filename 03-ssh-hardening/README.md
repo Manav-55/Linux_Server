@@ -151,10 +151,12 @@ Agent forwarding lets a remote server use your local SSH agent for onward connec
 ## Verification
 
 After each change, test the configuration before restarting SSH:
+
 => sudo sshd -t
 
 If the command prints no output, the configuration syntax is valid. Then restart the SSH service:
 On some distributions the service is named sshd
+
 => sudo systemctl restart ssh/sshd
 
 
