@@ -1,0 +1,13 @@
+[Unit]
+Description=A service for cleaning up the backup older than 7 days.
+After=local-fs.target
+
+[Service]
+Type=oneshot
+User=manav
+WorkingDirectory=/home/manav/scripts
+ExecStart=/home/manav/scripts/auto_clean.sh
+
+
+[Install]
+WantedBy=multi-user.target

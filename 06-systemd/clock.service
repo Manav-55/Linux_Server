@@ -1,0 +1,14 @@
+[Unit]
+Description=Clock Service
+After=network.target
+
+[Service]
+Type=simple
+User=manav
+WorkingDirectory=/home/manav/scripts
+ExecStart=/home/manav/scripts/clock.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
